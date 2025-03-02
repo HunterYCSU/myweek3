@@ -4,6 +4,8 @@ using Week3EntityFramework.Dtos;
 
 var context = new IndustryConnectWeek2Context();
 
+//test
+
 //var customer = new Customer
 //{
 //    DateOfBirth = DateTime.Now.AddYears(-20)
