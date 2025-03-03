@@ -4,8 +4,6 @@ using Week3EntityFramework.Dtos;
 
 var context = new IndustryConnectWeek2Context();
 
-//test
-
 //var customer = new Customer
 //{
 //    DateOfBirth = DateTime.Now.AddYears(-20)
@@ -40,7 +38,14 @@ var context = new IndustryConnectWeek2Context();
 //    context.SaveChanges();
 //}
 
+var customersNoSales = context.Customers
+    .Include(c => c.Sales)
+    .Where(c => !c.Sales.Any()).ToList();
 
+foreach (var person in customersNoSales)
+{
+    Console.Write(person.FirstName + " " + person.LastName);
+}
 
 var sales = context.Sales.Include(c => c.Customer)
     .Include(p => p.Product).ToList();
